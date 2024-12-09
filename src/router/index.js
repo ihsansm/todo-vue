@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomePage from '../views/HomePage.vue';
 import AboutPage from '../views/AboutPage.vue';
+import DashBoard from '../views/DashBoard.vue';
 
 // Definisikan semua rute di sini
 const routes = [
@@ -8,6 +9,11 @@ const routes = [
     path: '/', 
     name: 'HomePage',
     component: HomePage
+  },
+  {
+    path: '/dashboard', 
+    name: 'Dashboard',
+    component: DashBoard
   },
   {
     path: '/about', 

@@ -1,6 +1,12 @@
 <template>
-  <div id="app">
+  <div id="app" class="text-center">
+    <nav>
+    <router-link to="/HomePage" >HomePage</router-link> |
+    <router-link to="/AboutPage">AboutPage</router-link> |
+    <router-link to="/dashboard">DashBoard</router-link>
+    </nav>
     <todo-app></todo-app>
+    <router-view/>
   </div>
 </template>
 
