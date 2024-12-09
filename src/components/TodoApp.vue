@@ -20,9 +20,18 @@
   </thead>
   <tbody>
     <tr v-for="(task, index) in tasks" :key="index">
-      <td>{{task.name}}</td>
+      <td>
+        <span :class="{'finished': task.status === 'finished'}">
+        {{task.name}}
+        </span>
+      </td>
       <td style="width: 120px;">
-        <span @click="changeStatus(index)" class="pointer">{{task.status}}
+        <span @click="changeStatus(index)" class="pointer" :class="{'text-danger': task.status === 'to-do', 
+        'text-warning': task.status === 'in-progress',
+        'text-success': task.status === 'finished'
+        }"
+        >
+        {{ firstCharUpper(task.status) }}
         </span>
       </td>
       <td>
@@ -103,14 +112,22 @@ export default {
       this.tasks[index].status = this.availableStatuses[newIndex];
         
     },
-  },
 
-}
+    firstCharUpper(str) {
+      return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+  }
+
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
  <style scoped>
  .pointer {
   cursor: pointer;
+ }
+ .finisher {
+  text-decoration: line-through;
+
  }
 </style>
