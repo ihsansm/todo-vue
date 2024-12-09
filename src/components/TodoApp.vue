@@ -98,11 +98,10 @@ export default {
     },
 
     changeStatus(index) {
-      let newIndex = this.availableStatuses.indexOf(this.tasks[index]).
+      let newIndex = this.availableStatuses.indexOf(this.tasks[index])
       if (++newIndex > 2) newIndex = 0 ;
       this.tasks[index].status = this.availableStatuses[newIndex];
         
-      }
     },
   },
 
